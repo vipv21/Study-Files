@@ -1,7 +1,7 @@
 <template>
   <div>
     <van-button type='primary'>我是按钮啊</van-button>
-
+    <van-button type='primary'>我是按钮啊</van-button>
   </div>
 </template>
 
