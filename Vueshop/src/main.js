@@ -3,13 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import {Button} from 'vant'   //配置后的按需引入
+import {Button,Row,Col} from 'vant'   //配置后的按需引入
 
-Vue.use(Button);
 
-// import Vant from 'vant'   //引入vant组件
-// import 'van/lib/vant-css/index.css'   //引入vant组件样式
-// Vue.use(Vant);    //使用vant
+Vue.use(Button).use(Row).use(Col);
+
+
 
 
 

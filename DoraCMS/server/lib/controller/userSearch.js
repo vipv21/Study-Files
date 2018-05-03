@@ -13,11 +13,16 @@ const _ = require('lodash')
 const fs = require('fs')
 const captcha = require('trek-captcha')
 
-var express=require("express");
-var superagent=require("superagent");
-var cheerio=require("cheerio");
-var http = require('http');
-var router = express.Router();
+const bodyParser = require('body-parser');
+const express=require("express");
+var app = express();
+// body-parser设置
+app.use(bodyParser.urlencoded({extended:true }) )  //解码编码的
+
+const superagent=require("superagent");
+const cheerio=require("cheerio");
+const http = require('http');
+
 
 // 获取sessionID
 var LogonHeader = {
@@ -82,89 +87,99 @@ class UserSearch {
         // super()
     }
 
-    async getImgCode(req, res) {
-        const { token, buffer } = await captcha();
-        req.session.imageCode = token;
-        res.writeHead(200, { 'Content-Type': 'image/png' });
-        res.write(buffer);
-        res.end();
-    }
+// others
+    // async getImgCode(req, res) {
+    //     const { token, buffer } = await captcha();
+    //     req.session.imageCode = token;
+    //     res.writeHead(200, { 'Content-Type': 'image/png' });
+    //     res.write(buffer);
+    //     res.end();
+    // }
 
-    async getUsers(req, res, next) {
-        try {
-            let current = req.query.current || 1;
-            let pageSize = req.query.pageSize || 10;
-            let searchkey = req.query.searchkey, queryObj = {};
+    // async getUsers(req, res, next) {
+    //     try {
+    //         let current = req.query.current || 1;
+    //         let pageSize = req.query.pageSize || 10;
+    //         let searchkey = req.query.searchkey, queryObj = {};
 
-            if (searchkey) {
-                let reKey = new RegExp(searchkey, 'i')
-                queryObj.userName = { $regex: reKey }
-            }
+    //         if (searchkey) {
+    //             let reKey = new RegExp(searchkey, 'i')
+    //             queryObj.userName = { $regex: reKey }
+    //         }
 
-            const Users = await UserModel.find(queryObj, { password: 0 }).sort({ date: -1 }).skip(Number(pageSize) * (Number(current) - 1)).limit(Number(pageSize));
-            const totalItems = await UserModel.count(queryObj);
-            res.send({
-                state: 'success',
-                docs: Users,
-                pageInfo: {
-                    totalItems,
-                    current: Number(current) || 1,
-                    pageSize: Number(pageSize) || 10,
-                    searchkey: searchkey || ''
-                }
-            })
-        } catch (err) {
-            logUtil.error(err, req);
-            res.send({
-                state: 'error',
-                type: 'ERROR_DATA',
-                message: '获取User失败'
-            })
-        }
-    }
+    //         const Users = await UserModel.find(queryObj, { password: 0 }).sort({ date: -1 }).skip(Number(pageSize) * (Number(current) - 1)).limit(Number(pageSize));
+    //         const totalItems = await UserModel.count(queryObj);
+    //         res.send({
+    //             state: 'success',
+    //             docs: Users,
+    //             pageInfo: {
+    //                 totalItems,
+    //                 current: Number(current) || 1,
+    //                 pageSize: Number(pageSize) || 10,
+    //                 searchkey: searchkey || ''
+    //             }
+    //         })
+    //     } catch (err) {
+    //         logUtil.error(err, req);
+    //         res.send({
+    //             state: 'error',
+    //             type: 'ERROR_DATA',
+    //             message: '获取User失败'
+    //         })
+    //     }
+    // }
 
-    async delUser(req, res, next) {
-        try {
-            let errMsg = '', targetIds = req.query.ids;
-            if (!siteFunc.checkCurrentId(targetIds)) {
-                errMsg = '非法请求，请稍后重试！';
-            } else {
-                targetIds = targetIds.split(',');
-            }
-            if (errMsg) {
-                throw new siteFunc.UserException(errMsg);
-            }
-            for (let i = 0; i < targetIds.length; i++) {
-                let regUserMsg = await MessageModel.find({ 'author': targetIds[i] });
-                if (!_.isEmpty(regUserMsg)) {
-                    res.send({
-                        state: 'error',
-                        message: '请删除该用户留言后在执行该操作！',
-                    })
-                    break;
-                }
-            }
-            await UserModel.remove({ '_id': { $in: targetIds } });
-            res.send({
-                state: 'success'
-            });
-        } catch (err) {
-            logUtil.error(err, req);
-            res.send({
-                state: 'error',
-                type: 'ERROR_IN_SAVE_DATA',
-                message: '删除数据失败:',
-            })
-        }
-    }
+    // async delUser(req, res, next) {
+    //     try {
+    //         let errMsg = '', targetIds = req.query.ids;
+    //         if (!siteFunc.checkCurrentId(targetIds)) {
+    //             errMsg = '非法请求，请稍后重试！';
+    //         } else {
+    //             targetIds = targetIds.split(',');
+    //         }
+    //         if (errMsg) {
+    //             throw new siteFunc.UserException(errMsg);
+    //         }
+    //         for (let i = 0; i < targetIds.length; i++) {
+    //             let regUserMsg = await MessageModel.find({ 'author': targetIds[i] });
+    //             if (!_.isEmpty(regUserMsg)) {
+    //                 res.send({
+    //                     state: 'error',
+    //                     message: '请删除该用户留言后在执行该操作！',
+    //                 })
+    //                 break;
+    //             }
+    //         }
+    //         await UserModel.remove({ '_id': { $in: targetIds } });
+    //         res.send({
+    //             state: 'success'
+    //         });
+    //     } catch (err) {
+    //         logUtil.error(err, req);
+    //         res.send({
+    //             state: 'error',
+    //             type: 'ERROR_IN_SAVE_DATA',
+    //             message: '删除数据失败:',
+    //         })
+    //     }
+    // }
+
+    // async aaaaaa(req, res, next){
+    //     console.log('数据是'+req.body);
+    //     res.send({
+    //         state: 'success',
+    //         message: '恭喜你请求成功！'
+    //     }) 
+    // }
+
+// othersEnd
 
     async searchOne(req,res,next){      //普通用户查询接口
-
-        let fid = req.body.fid;             //学校id
-        let idNumber = req.body.idNumber;   //学号
-        let pwd = req.body.pwd;             //密码
-        console.log(fid +'=='+ idNumber +'=='+pwd );
-    // return;
+            let fid = req.body.school;              //学校id
+            let idNumber = req.body.number;         //学号
+            let pwd = req.body.pass;                //密码
+            console.log(fid +'=='+ idNumber +'=='+pwd );
+        return;
             superagent.post('https://passport2-api.chaoxing.com/v6/idNumberLogin?fid=' + fid + '&idNumber=' + idNumber).set(headers).send({pwd:pwd }).redirects(0).end(function (err, resonse) {
                     console.log('执行完第一次请求');
                 let cookie = resonse.headers["set-cookie"];    //获取resonse返回的cookie

@@ -72,9 +72,9 @@ export default {
 
       return {
         ruleForm2: {
-          pass: '000',
-          school: '00',
-          number: '00'
+          pass: '980421',
+          school: '1916',
+          number: '1601080315'
         },
         rules2: {
           pass: [

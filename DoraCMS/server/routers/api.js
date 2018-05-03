@@ -84,8 +84,8 @@ router.get('/qrImg', (req, res, next) => {
 });
 
 // 用户登录
-// router.post('/users/doLogin', User.loginAction);
-router.post('/usersdsd/doLogin', User.loginAction);
+router.post('/users/doLogin', User.loginAction);
+// router.post('/users/doLogin', User.aaaaaa);
 
 // 用户注册
 router.post('/users/doReg', User.regAction);
