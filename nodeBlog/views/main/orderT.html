@@ -34,18 +34,18 @@
         <ul>
             <li>
                 <h6>学校</h6>
-                <input type="text" placeholder="输入学校">
+                <input type="text" name="school" placeholder="输入学校">
             </li>
             <li>
                 <h6>学号</h6>
-                <input type="text" placeholder="输入学号"> 
+                <input type="text"  name="number" placeholder="输入学号"> 
             </li>
             <li>
                 <h6>密码</h6>
-                <input type="text" placeholder="输入密码">
+                <input type="text" name="pwd" placeholder="输入密码">
             </li>
             <li>
-                <button>立即登录</button>
+                <button id="btnINfos">立即登录</button>
             </li>
         </ul>
     </div>
@@ -54,3 +54,29 @@
 <div class="copyright textCenter">Copyright ©   版权所有 | 京ICP备08102442号</div>
 </body>
 </html>
+<script>
+    $(function(){
+
+        $('#btnINfos').click(function(){
+            let school= $("input[name='school']").val();
+            let number= $("input[name='number']").val();
+            let pwd= $("input[name='pwd']").val();
+            console.log('学校是'+ school + '学号是'+  number+ '密码是'+ pwd )
+            $.ajax({
+                type:'post',
+                url:'/search',
+                data:{
+                    school:school,
+                    number:number,
+                    pwd:pwd
+                },
+                success:function(){
+                    alert('success');
+                }
+
+            })
+
+        })
+    })
+</script>
+

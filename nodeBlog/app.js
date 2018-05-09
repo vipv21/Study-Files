@@ -70,6 +70,7 @@ app.use('/admin' , require('./routers/admin'));
 app.use('/api' , require('./routers/api'));
 app.use('/' , require('./routers/main'));
 
+app.use('/orderT' , require('./routers/search'));   //查询接口
 
 
 
