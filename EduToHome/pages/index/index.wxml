@@ -1,0 +1,187 @@
+<!--index.wxml-->
+<view class='body-index' >
+<!-- <scroll-view class='extra-word' scroll-y="{{isScroll}}"> -->
+
+     <!-- <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">获取头像昵称 </button>
+    <block >
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>  -->
+
+  <view class='index-list' wx:for="{{resultData}}" wx:for-index="k">
+    <!-- <block> -->
+      <view class='ilist-l'>
+          <image src="{{headimg}}" class="headimg" mode="scaleToFill"></image>
+      </view>
+      <view class='ilist-r'>
+        <view class='iname'>{{resultData[k].studentName}}</view>
+        <view class='inotes'>[我的熊孩子]</view> 
+        <view class='permissions iconfont icon-biyanjing' bindtap="noTitlemodalTap"/>
+        <view class='isubject'>生态瓶(课件名)</view>
+        <navigator >
+          <image src='{{resultData[k].fileUrl}}' class='jobimg' bindtap='viewImg'></image>
+        </navigator>
+        <view class='ischool'>{{resultData[k].schoolName}}</view>
+        <view class='itime'>10分钟前</view>
+        <!-- 快速评论操作按钮 -->
+        <view class='comment iconfont '>
+          <image src='{{more}}' class='more'  catchtap='review'></image>
+          <view class="comment-info {{showView?'comment-hide':'comment-show'}}"> 
+            <image src='{{clap}}' class='iclapimg'></image>|
+            <image src='{{clap}}' class='iclapimg'></image>|
+            <view class='iconfont icon-zan' />|
+            <view class='comments'>评论</view>
+          </view>
+        </view>
+        <!-- 评论操作等 -->
+        <view class='comment-infos comment-show'> 
+          <view class='iconfont icon-02 icons' />
+          <view class='numbers'>12万</view>
+          <image src='{{clap}}' class='iclapimgs'> </image>
+          <view class='numbers'>789456321</view>
+          <view class='iconfont icon-zan icons' />
+          <view class='numbers'>1212</view>
+          <view class='iconfont icon-pingluns icons' />
+          <view class='numbers' catchtap='showModal'>222</view>
+        </view>
+        <!-- 底部评论弹窗 -->
+
+        <!--屏幕背景变暗的背景  -->
+        <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+        <!--弹出框  -->
+        <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}" catchtouchmove='true'>
+          <view class='close' bindtap="hideModal" >X</view>
+          <view class='commentInfos'>
+
+            <view class="commentList">
+              <view class='commTitle'> 
+                <text style='color: #aaffe2;'>我的斑斑：</text>非常的漂亮非常的漂亮非常的漂亮非常的漂亮非常的漂亮
+              </view>
+              <view class='commTime'>2018年04月26日  17:47</view>
+            </view>
+            <view class="commentList">
+              <view class='commTitle'> 
+                <text style='color: #aaffe2;'>我的斑斑：</text>非常的漂亮非常的漂亮非常的漂亮非常的漂亮非常的漂亮
+              </view>
+              <view class='commTime'>2018年04月26日  17:47</view>
+            </view>
+            <view class="commentList" >
+              <view class='commTitle'  catchtap="reply"> 
+                <text style='color: #aaffe2;'>我的斑斑：</text>非常的漂亮非常的漂亮非常的漂亮非常的漂亮非常的漂亮
+              </view>
+              <view class='commTime'>2018年04月26日  17:47</view>
+              <view class="weui-cells weui-cells_after-title">
+                <view class="weui-cell weui-cell_input">
+                  <input class="weui-input" placeholder-style="color:#F76260" placeholder="回复[我的奥巴马]消息："  class="inputs {{inputView?'showInput':'hideInput'}}" catchtap='inputsF' confirm-type='send' bindconfirm='confirms' auto-focus/>
+                </view>
+              </view>
+
+                <!-- 回复消息 -->
+                <view class='replyMsg  '> 
+                  <view class='commTitles'>家长[123里]回复：<text style='color: #ffffff;'>{{inputValue}}</text>
+                  </view>
+                  <view class='commTimes'>2018年04月26日  17:47</view>
+                </view>
+
+            </view>
+
+          </view>
+        </view>
+      </view>
+    <!-- </block> -->
+  </view>
+
+
+
+
+
+
+
+
+  <!-- <view class='index-list'>
+    <view class='ilist-l'>
+        <image src="{{headimg}}" class="headimg"></image>
+    </view>
+    <view class='ilist-r'>
+      <view class='iname'>猫小魅 </view>
+      <view class='inotes'>[我的熊孩子]</view> 
+      <view class='permissions iconfont icon-biyanjing' bindtap="noTitlemodalTap"/>
+      <view class='isubject'>生态瓶(课件名)---1年级2班</view>
+      <navigator url=''>
+        <image src='{{imgsrc}}' class='jobimg'></image>
+      </navigator>
+      <view class='ischool'>三墩小学</view>
+      <view class='itime'>10分钟前</view>
+      <view class='comment iconfont '>
+        <image src='{{more}}' class='more'  catchtap='review'></image>
+         <view class="comment-info {{showView?'comment-hide':'comment-show'}}"> 
+          <image src='{{clap}}' class='iclapimg'></image>|
+          <image src='{{clap}}' class='iclapimg'></image>|
+          <view class='iconfont icon-zan' />|
+          <view class='comments'>评论</view>
+        </view>
+      </view>
+      <view class='comment-infos comment-show'> 
+        <view class='iconfont icon-02 icons' />
+        <view class='numbers'>12万</view>
+        <image src='{{clap}}' class='iclapimgs'> </image>
+        <view class='numbers'>789456321</view>
+        <view class='iconfont icon-zan icons' />
+        <view class='numbers'>1212</view>
+        <view class='iconfont icon-pingluns icons' />
+        <view class='numbers'>1212</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='index-list'>
+    <view class='ilist-l'>
+        <image src="{{headimg}}" class="headimg"></image>
+    </view>
+    <view class='ilist-r'>
+      <view class='iname'>猫小魅 </view>
+      <view class='inotes'>[我的熊孩子]</view> 
+      <view class='permissions iconfont icon-biyanjing' bindtap="noTitlemodalTap"/>
+      <view class='isubject'>生态瓶(课件名)---1年级2班</view>
+      <navigator url=''>
+        <image src='{{imgsrc}}' class='jobimg'></image>
+      </navigator>
+      <view class='ischool'>三墩小学</view>
+      <view class='itime'>10分钟前</view>
+      <view class='comment iconfont '>
+        <image src='{{more}}' class='more'  catchtap='review'></image>
+         <view class="comment-info {{showView?'comment-hide':'comment-show'}}"> 
+          <image src='{{clap}}' class='iclapimg'></image>|
+          <image src='{{clap}}' class='iclapimg'></image>|
+          <view class='iconfont icon-zan' />|
+          <view class='comments'>评论</view>
+        </view>
+      </view>
+      <view class='comment-infos comment-show'> 
+        <view class='iconfont icon-02 icons' />
+        <view class='numbers'>12万</view>
+        <image src='{{clap}}' class='iclapimgs'> </image>
+        <view class='numbers'>789456321</view>
+        <view class='iconfont icon-zan icons' />
+        <view class='numbers'>1212</view>
+        <view class='iconfont icon-pingluns icons' />
+        <view class='numbers'>1212</view>
+      </view>
+    </view>
+  </view> -->
+
+  <!-- 拍照 -->
+  <image src='{{pz}}'  class='photograph' catchtap="chooseImage"></image>
+
+
+
+<!-- </scroll-view> -->
+</view>
+
+
+
+
+
+
+
+

@@ -1,0 +1,71 @@
+@import "../wxSearchView/wxSearchView.wxss";
+.container{
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  border-top: 1px solid #ccc;
+  padding:30rpx;
+  box-sizing: border-box;
+}
+.exerc-title{
+  width: 100%;
+  font-size: 30rpx;
+  text-align:left;
+  display: flex;
+  align-items: center;
+}
+image{
+  width: 126rpx;
+	height: 83rpx;
+}
+.Index{
+  width: 100%;
+  height: 100rpx;
+  text-align:left;
+  display: flex;
+  align-items: center;
+}
+.num{
+  display: inline-block;
+	width: 57rpx;
+	height: 57rpx;
+  line-height: 57rpx;
+  color: #ccc;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  text-align: center;
+  margin-right: 53rpx;
+}
+.num-bj{
+  background-color: red;
+}
+
+.tj ,.analysis{
+  width: 100%;
+  display: inline-block;
+  padding:0 30rpx;
+  box-sizing: border-box;
+}
+.tjImg{
+  width: 61rpx;
+  height: 74rpx;
+  margin-right: 30rpx;
+}
+.tjFont{
+  /* display: inline-block; */
+  font-size: 28rpx;
+  padding: 10rpx;
+}
+.tjFonts{
+  display: inline-block;
+  margin:0 5rpx;
+}
+
+.analysis{
+  margin-top: 70rpx;
+}
+.analysisInfo{
+  font-size: 30rpx;
+  padding: 10rpx 0;
+}
+

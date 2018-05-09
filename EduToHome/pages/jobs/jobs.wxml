@@ -1,0 +1,137 @@
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-tab">
+            <view class="weui-navbar">
+                <block wx:for="{{tabs}}" wx:key="*this">
+                    <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                        <view class="weui-navbar__title">{{item}}</view>
+                    </view>
+                </block>
+                <!-- <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view> -->
+            </view>
+            <view class="weui-tab__panel">
+                <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+                <!-- 作业的内容 -->
+                  <view class="page__bd">
+                      <view class="weui-search-bar">
+                          <view class="weui-search-bar__form">
+                              <view class="weui-search-bar__box">
+                                  <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                                  <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+                                  <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                                      <icon type="clear" size="14"></icon>
+                                  </view>
+                              </view>
+                              <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                                  <icon class="weui-icon-search" type="search" size="14"></icon>
+                                  <view class="weui-search-bar__text">搜索</view>
+                              </label>
+                          </view>
+                          <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+                      </view>
+                      <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+                          <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+                              <view class="weui-cell__bd">
+                                  <view>实时搜索文本</view>
+                              </view>
+                          </navigator>
+                          <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+                              <view class="weui-cell__bd">
+                                  <view>实时搜索文本</view>
+                              </view>
+                          </navigator>
+                          <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+                              <view class="weui-cell__bd">
+                                  <view>实时搜索文本</view>
+                              </view>
+                          </navigator>
+                          <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+                              <view class="weui-cell__bd">
+                                  <view>实时搜索文本</view>
+                              </view>
+                          </navigator>
+                      </view>
+                  </view>
+
+                  <view class='job-list'>
+                      <navigator class='job-info' url='../jobScore/jobScore'>
+                        <view class='job-l'>
+                          <image src='{{a2}}'  class=' mark'></image>
+                          <text class='marks'>90</text>
+                        </view>
+                        <view class='job-r'>
+                          <text class='job-title'>数学--三角形周期计算的动次打次</text>
+                          <text class='job-time'>2017/21/22/18:09</text>
+                        </view>
+                      </navigator>
+
+                      <navigator class='job-info' url=' '>
+                        <view class='job-l'>
+                          <image src='{{a4}}'  class='mark'></image>
+                          <text class='marks'>?</text>
+                        </view>
+                        <view class='job-r'>
+                          <text class='job-title'>数学--三角形周期计算的动形周期计算的动期计算的动</text>
+                          <text class='job-time'>2017/21/22/18:09</text>
+                        </view>
+                      </navigator>
+
+                      <navigator class='job-info' url=''>
+                        <view class='job-l'>
+                          <image src='{{a2}}'  class=' mark'></image>
+                          <text class='marks'>90</text>
+                        </view>
+                        <view class='job-r'>
+                          <text class='job-title'>数学--三角形周期计算的动次打次</text>
+                          <text class='job-time'>2017/21/22/18:09</text>
+                        </view>
+                      </navigator>
+
+                  </view>
+                
+                </view>
+
+
+                <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+                <!-- 统计的内容 -->
+                  <view class='c-titles'>
+                    <text class='c-g'>美术</text>/共<text class='c-g'>24</text>次
+                    <view class="date-Filters">
+                      <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange" class='dateInfos'>
+                        <view class="weui-input">{{date}}</view>
+                      </picker>
+                      <text style='color:#9a9a9a'> 至 </text>
+                      <picker mode="date" value="{{dates}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChanges" class='dateInfos'>
+                        <view class="weui-input">{{dates}}</view>
+                      </picker>
+                    </view>
+                  </view>
+
+                  <view class='c-chart'>
+                      <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec }}"></ec-canvas>
+                  </view>
+
+
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<!-- ---------------- -->
+
+<!-- <view>{{ searchValue}}</view> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+

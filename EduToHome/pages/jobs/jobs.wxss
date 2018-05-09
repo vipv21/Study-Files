@@ -1,0 +1,151 @@
+@import "../wxSearchView/wxSearchView.wxss";
+
+page{
+  background-color: #F8F9FD;
+}
+.weui-navbar{
+  border-bottom: 0;
+}
+.weui-navbar__item{
+  background-color: #F2F2F2;
+  color: #000;
+}
+.weui-bar__item_on{
+  background-color: #55DAE0;
+  color: #ffffff;
+}
+.weui-navbar__title{
+  color: #000;
+  font-size: 32rpx;
+}
+
+.weui-bar__item_on>.weui-navbar__title{
+  color: #ffffff;
+}
+
+
+
+.page__bd,.weui-search-bar{
+  background-color: #ffffff;
+  border-bottom:0;
+
+}
+.weui-search-bar__form{
+  border-radius:50px;
+}
+.weui-search-bar__label{
+    border-radius:50px;
+    background:#F2F2F2;
+}
+.c-title{
+  width: 100%;
+  display: inline-block;
+  font-size: 32rpx;
+  text-align: center;
+  border-top: 1px solid #ccc;
+  padding: 40rpx 0;
+}
+.count-list{
+  width: 100%;
+  padding: 28rpx 24rpx;
+  height: auto;
+  display: inline-block;
+  box-sizing: border-box;
+  background-color: #F2F2F2;
+  overflow: hidden;
+}
+
+
+.job-list{
+  width: 100%;
+  padding:14rpx;
+  box-sizing:border-box;
+  background-color: #F8F9FD;
+}
+.job-info{
+  width: 100%;
+  height: 150rpx;
+  background-color: #ffffff;
+  margin-bottom: 14rpx;
+}
+.job-l{
+  float: left;
+  width: 103rpx;
+  height: 100%;
+}
+.job-r{
+  height: 100%;
+  justify-content:flex-end; 
+  font-size: 30rpx;
+  padding:30rpx 10rpx;
+  box-sizing: border-box;
+  margin-left:103rpx;
+  overflow: hidden;
+}
+.mark{
+  width: 92rpx;
+  height: 94rpx;
+}
+.marks{
+  display:inline-block;
+  font-size: 28rpx;
+  color: #ffffff;
+  position:relative;
+  top:-56px;
+  left:9px;
+  text-align: center;
+  transform:rotate(-45deg);
+}
+/* .job-infoname{
+  color: #00CC00;
+} */
+.job-title{
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  font-size: 32rpx;
+
+
+}
+.job-time{
+  font-size: 26rpx;
+  display:block;
+  /* padding-left:90rpx; */
+}
+
+/* -------统计css--------- */
+.c-titles{
+  width: 100%;
+  height: 222rpx;
+  display: inline-block;
+  font-size: 32rpx; 
+  text-align: center;
+  border-top: 1px solid #ccc;
+  padding: 60rpx 0; 
+  background-color: #F8F9FD;
+  box-sizing: border-box;
+}
+.c-g{
+  color: #00CC66;
+}
+
+.date-Filters{
+  width: 100%;
+  text-align:center;
+  font-size:28rpx;
+
+}
+.dateInfos{
+  display: inline-block;
+}
+
+ec-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+#mychart-dom-pie{
+  width:100%;
+  height:260px;
+  position:absolute;
+}

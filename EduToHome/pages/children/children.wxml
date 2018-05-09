@@ -1,0 +1,26 @@
+<view class="content">
+
+  <navigator class='childrens' url='../childrenInfo/childrenInfo'>
+     <image src='{{headimg}}' class='headImg'></image>
+     <view class='cont'>
+        <text class='number'>1111111111</text>
+        <text class='name'>手续费是的</text>
+     </view>
+  </navigator>
+
+  <navigator class='childrens'>
+     <image src='{{headimg}}' class='headImg'></image>
+     <view class='cont'>
+        <text class='number'>1111111111</text>
+        <text class='name'>手续费是的</text>
+     </view>
+  </navigator>
+
+  <navigator class='addChildern' url='../addChildren/addChildren'>
+    + 继续添加
+  </navigator>
+
+
+
+
+</view>

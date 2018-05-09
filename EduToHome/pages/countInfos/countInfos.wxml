@@ -1,0 +1,28 @@
+<view class=" ">
+  <view class='c-title'>
+    <text class='c-g'>美术</text>/共<text class='c-g'>24</text>次
+    <view class="date-Filters">
+      <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange" class='dateInfos'>
+        <view class="weui-input">{{date}}</view>
+      </picker>
+      <text style='color:#9a9a9a'> 至 </text>
+      <picker mode="date" value="{{dates}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChanges" class='dateInfos'>
+        <view class="weui-input">{{dates}}</view>
+      </picker>
+    </view>
+  </view>
+
+
+</view>
+
+
+
+
+
+
+
+
+
+
+
+

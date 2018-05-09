@@ -1,0 +1,78 @@
+<view class=" ">
+  <view class='container'>
+    <view class='exerc-title'>
+      <text>1</text>.看以下一张图片选<image src='{{headimg}}'></image>出正确的选项（）
+    </view>
+    <view class='Index'>
+      <text class='num num-bj'>A</text>
+      <image src='{{a2}}' class='imgs' catchtap="previewImage" ></image>
+<!-- 
+      <image class="weui-uploader__img" src="{{image}}" data-index="{{index}}" data-src="{{image}}" catchtap="previewImage" catchlongpress='delImage'></image> -->
+
+    </view>
+    <view class='Index'>
+      <text class='num'>B</text>
+      <image src='{{a2}}'></image>
+    </view>
+    <view class='Index'>
+      <text class='num num-bj'>C</text>
+      <image src='{{a2}}'></image>
+    </view>
+    <view class='Index'>
+      <text class='num'>D</text>
+      <image src='{{a2}}'></image>
+    </view>
+  </view>
+
+  <view class='tj'>
+    <view>
+      <image src='{{tj}}' class='tjImg'></image> 
+      <text style='font-size:32rpx'>统计﹀</text>
+    </view>
+    <view class='tjFont' style='color:#666666'>正确答案： 
+      <text class='tjFonts'>12</text>
+    </view>
+    <view class='tjFont' style='color:#666666'>我的答案： 
+      <text class='tjFonts'>1111</text>
+    </view>
+    <view class='tjFont'>正确： 
+      <text class='tjFonts'>67%</text><text class='tjFonts'>12人</text> 
+    </view>
+    <view class='tjFont'>错误：
+      <text class='tjFonts'>33%</text><text class='tjFonts'>10人</text> 
+    </view>
+    <view class='tjFont' style='color:#666666'>李一； 李二； 李二； 李一； 李二；  李二；</view>
+  </view>
+
+    <view class='analysis'>
+      <view>
+        <image src='{{tj}}' class='tjImg'></image> 
+        <text style='font-size:32rpx'>解析﹀</text>
+      </view>
+      <view class='analysisInfo'>
+        正确答案应该是图ABFV
+      </view>
+    </view>
+
+
+
+
+
+
+
+<text></text>
+
+
+</view>
+
+
+
+
+
+
+
+
+
+
+
+

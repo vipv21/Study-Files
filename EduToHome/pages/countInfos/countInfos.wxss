@@ -1,0 +1,28 @@
+.c-title{
+  width: 100%;
+  height: 450rpx;
+  display: inline-block;
+  font-size: 50rpx;
+  text-align: center;
+  border-top: 1px solid #ccc;
+  padding: 20rpx 0; 
+  padding-top: 120rpx;
+  background-color: #F8F9FD;
+  box-sizing: border-box;
+}
+.c-g{
+  color: #00CC66;
+}
+
+.date-Filters{
+  width: 100%;
+  text-align:center;
+  margin-top: 100rpx;
+}
+.dateInfos{
+  display: inline-block;
+}
+
+
+
+

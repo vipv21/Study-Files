@@ -1,0 +1,71 @@
+<view class="content">
+
+  <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+              <view class="weui-label">账号</view>
+          </view>
+          <view class="weui-cell__bd">
+              <input class="weui-input" placeholder="点击输入"/>
+          </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+              <view class="weui-label">账号</view>
+          </view>
+          <view class="weui-cell__bd">
+              <input class="weui-input" placeholder="点击输入"/>
+          </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+              <view class="weui-label">姓名</view>
+          </view>
+          <view class="weui-cell__bd">
+              <input class="weui-input" placeholder="点击输入"/>
+          </view>
+      </view>
+
+      <view class="weui-cell weui-cell_select">
+          <view class="weui-cell__hd weui-cell__hd_in-select-after">
+              <view class="weui-label">学校</view>
+          </view>
+          <view class="weui-cell__bd">
+              <picker bindchange="bindCountryChange" value="{{countryIndex}}" range="{{countries}}">
+                  <view class="weui-select weui-select_in-select-after">{{countries[countryIndex]}}</view>
+              </picker>
+          </view>
+      </view>
+
+      <view class="weui-cell weui-cell_select">
+          <view class="weui-cell__hd weui-cell__hd_in-select-after">
+              <view class="weui-label">年级</view>
+          </view>
+          <view class="weui-cell__bd">
+              <picker bindchange="bindYear" value="{{yearIndex}}" range="{{year}}">
+                  <view class="weui-select weui-select_in-select-after">{{year[yearIndex]}}</view>
+              </picker>
+          </view>
+      </view>
+
+      <view class="weui-cell weui-cell_select">
+          <view class="weui-cell__hd weui-cell__hd_in-select-after">
+              <view class="weui-label">班级</view>
+          </view>
+          <view class="weui-cell__bd">
+              <picker bindchange="bindClasses" value="{{yearIndex}}" range="{{classes}}">
+                  <view class="weui-select weui-select_in-select-after">{{classes[classesIndex]}}</view>
+              </picker>
+          </view>
+      </view>
+
+
+  </view>
+
+  <view class='btnsInfo'>
+    <button class="weui-btn" type=" ">完成</button>
+  </view>
+
+
+
+</view>

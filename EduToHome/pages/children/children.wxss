@@ -1,0 +1,45 @@
+.content{
+  width: 100%;height: 100%;
+  display: inline-block; 
+  text-align: center; 
+  /* padding:30rpx;  */
+  box-sizing: border-box; 
+  border-top: 1px solid #ccc;
+}
+
+.childrens{
+  width: 100%;
+  height: 140rpx;
+  padding: 24rpx 0;
+  box-sizing: border-box; 
+  display: flex;
+  align-items: center; 
+  border-bottom: 1px solid #ccc;
+  margin-left: 28rpx;
+}
+
+.headImg{
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  float: left;
+}
+.cont{
+  float: left;
+  font-size: 28rpx;
+  margin-left: 20rpx;
+  text-align: left;
+}
+ 
+.number,.name{
+  display: block; 
+}
+.addChildern{
+  height: 84rpx;
+  margin: 23rpx 28rpx;
+  border: 1px dashed #ccc;
+  border-radius: 2px;
+  line-height: 84rpx;
+  font-size: 22rpx;
+  color: #999;
+}

@@ -1,0 +1,86 @@
+<view class=" ">
+  <view class='container'>
+    <view class='sTime'>提交时间: <text>2017/8/29  00:30:18</text> </view>
+    <view class='sTime'>答题用时：<text>00:51:04</text> </view>
+    <view class='score'>
+      <text class='scores'>50</text>分
+    </view>
+    <view>
+      【当前排名：<text>35</text>  处在  <text style='color:red'>"不及格"</text> 阶段】
+    </view>
+  </view>
+  <view class='containers'>
+    <view class='tips'> 本试卷难度<text>3.2</text> ，总分<text>100</text>分  共<text>18</text>题 </view>
+    <view class='tips-list'>
+      <navigator class='Indexs' url='../exercises/exercises'>
+        <text class='tipsIndex'>1</text>
+        <text style='display:block'>3分</text>
+        <text>20%正确</text>
+      </navigator>
+
+      <navigator class='Indexs' url='../exercises/exercises'>
+        <text class='tipsIndex'>2</text>
+        <text style='display:block'>3分</text>
+        <text>20%正确</text>
+      </navigator>
+
+      <navigator class='Indexs'>
+        <text class='tipsIndex'>3</text>
+        <text style='display:block'>3分</text>
+        <text>20%正确</text>
+      </navigator>
+
+      <navigator class='Indexs'>
+        <text class='tipsIndex'>4</text>
+        <text style='display:block'>3分</text>
+        <text>20%正确</text>
+      </navigator>
+
+      <navigator class='Indexs'>
+        <text class='tipsIndex'>5</text>
+        <text style='display:block'>3分</text>
+        <text>20%正确</text>
+      </navigator>
+
+      <navigator class='Indexs'>
+        <text class='tipsIndex'>6</text>
+        <text style='display:block'>3分</text>
+        <text>20%正确</text>
+      </navigator>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </view>
+
+
+
+  </view>
+
+
+
+<text></text>
+
+
+</view>
+
+
+
+
+
+
+
+
+
+
+
+

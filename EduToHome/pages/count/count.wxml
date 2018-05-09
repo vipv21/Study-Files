@@ -1,0 +1,83 @@
+<view class=" ">
+  <text class='c-title'>毛小妹学科统计</text>
+  <view class='count-list'>
+    <navigator class='subject-list' url='../jobs/jobs'>
+      <image src='{{Chinese}}' class='subjects'></image>
+      <view class='grade grade-z'>中</view>
+      <text class='sub-name'>语文</text>
+    </navigator>
+
+    <navigator class='subject-list' url='../jobs/jobs'>
+      <image src='{{math}}' class='subjects'></image>
+      <view class='grade grade-y'>优</view>
+      <text class='sub-name'>数学</text>
+    </navigator>
+
+    <navigator class='subject-list' url='../jobs/jobs'>
+      <image src='{{English}}' class='subjects'></image>
+      <view class='grade grade-y'>优</view>
+      <text class='sub-name'>英语</text>
+    </navigator>
+
+    <navigator class='subject-list' url='../jobs/jobs'>
+      <image src='{{biological}}' class='subjects'></image>
+      <view class='grade grade-c'>差</view>
+      <text class='sub-name'>生物</text>
+    </navigator>
+
+    <navigator class='subject-list' url='../jobs/jobs'>
+      <image src='{{music}}' class='subjects'></image>
+      <view class='grade grade-c'>差</view>
+      <text class='sub-name'>音乐</text>
+    </navigator>
+
+    <navigator class='subject-list' url='../jobs/jobs'>
+      <image src='{{arts}}' class='subjects'></image>
+      <view class='grade grade-c'>差</view>
+      <text class='sub-name'>美术</text>
+    </navigator>
+
+    <navigator class='subject-list' url='../jobs/jobs'>
+      <image src='{{physical}}' class='subjects'></image>
+      <view class='grade grade-c'>差</view>
+      <text class='sub-name'>物理</text>
+    </navigator>
+
+    <navigator class='subject-list' url='../jobs/jobs'>
+      <image src='{{political}}' class='subjects'></image>
+      <view class='grade grade-c'>差</view>
+      <text class='sub-name'>政治</text>
+    </navigator>
+
+  </view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</view>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,24 @@
+<view class="content">
+  <view class='top'>
+      <image src='{{headimg}}' class='head'></image>
+      <text class='t-name'>毛小小家长 </text>
+  </view>
+
+  <view class='cont-list'>
+    <navigator class='cont' url='../children/children'>
+        <image src='{{tj}}' class='infos'></image>孩子信息
+    </navigator>
+    <navigator class='cont' bindtap='dianjis'>
+        <image src='{{config}}' class='congfig'></image>设置
+    </navigator>
+  </view>
+
+
+
+
+
+
+
+
+
+</view>

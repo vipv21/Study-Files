@@ -1,0 +1,59 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/share/share",
+    "pages/count/count",
+    "pages/jobs/jobs",
+    "pages/search/search",
+    "pages/countInfos/countInfos",
+    "pages/jobScore/jobScore",
+    "pages/exercises/exercises",
+    "pages/personal/personal",
+    "pages/children/children",
+    "pages/childrenInfo/childrenInfo",
+    "pages/addChildren/addChildren",
+
+
+    "pages/about/about",
+    "pages/teacherlist/teacherlist",
+    "pages/actionlist/actionlist",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarTitleText": "家校通",
+    "navigationBarTextStyle":"black",
+    "navigationBarBackgroundColor": "#fff"
+  },
+  "tabBar": {
+    "color": "#888",
+    "selectedColor": "#4ec5c9",
+    "backgroundColor": "#fff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "课堂",
+        "iconPath": "image/4-1.png",
+        "selectedIconPath": "image/4.png"
+      },
+      {
+        "pagePath": "pages/count/count",
+        "text": "统计",
+        "iconPath": "image/tj2.png",
+        "selectedIconPath": "image/tj1.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "我",
+        "iconPath": "image/I.png",
+        "selectedIconPath": "image/I1.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

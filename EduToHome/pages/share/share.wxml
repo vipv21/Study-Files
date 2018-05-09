@@ -1,0 +1,45 @@
+<view class=" ">
+  <form>
+    <textarea class='textarea' placeholder='这一刻的想法...'></textarea>
+    <movable-area class='movebox' >
+      <view class="weui-uploader__bd">
+        <view class="weui-uploader__files">
+          <block wx:for="{{imageList}}" wx:for-item="image">
+            <view class="weui-uploader__file">
+              <!-- <movable-view x="{{x}}" y="{{y}}" direction="all"> -->
+                <image class="weui-uploader__img" src="{{image}}" data-index="{{index}}" data-src="{{image}}" catchtap="previewImage" catchlongpress='delImage'></image>
+              <!-- </movable-view> -->
+            </view>
+          </block>
+        </view>
+        <view class="weui-uploader__input-box">
+          <view class="weui-uploader__input" bindtap="chooseImage"></view>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_switch">
+        <view class='iconfont icon-yanjing' />
+        <view class="weui-cell__bd">是否公开</view>
+        <view class="weui-cell__ft">
+          <switch checked catchchange="switchChange"/>
+        </view>
+      </view>
+      <view class='deleting'>删除</view>
+    </movable-area>
+
+
+
+  </form>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+

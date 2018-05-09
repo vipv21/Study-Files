@@ -1,0 +1,30 @@
+@import "../wxSearchView/wxSearchView.wxss";
+
+.content{
+  width: 100%;height: 100%;
+  display: inline-block; 
+  text-align: center; 
+  box-sizing: border-box; 
+}
+.weui-input{
+  background-color: #F2F2F2;
+  border-radius: 15rpx;
+  height: 66rpx;
+}
+.weui-label{
+  width:140rpx;
+}
+.weui-cell{
+  height: 120rpx;
+}
+
+.btnsInfo{
+  width: 100%;
+  padding: 54rpx 0;
+}
+.weui-btn{
+  margin: 0 65rpx;
+  background-color: #55DAE0;
+  color: #fff;
+  border: 0;
+}
