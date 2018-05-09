@@ -175,12 +175,35 @@ class UserSearch {
 // othersEnd
 
     async searchOne(req,res,next){      //普通用户查询接口
-            let fid = req.body.school;              //学校id
-            let idNumber = req.body.number;         //学号
-            let pwd = req.body.pass;                //密码
-            console.log(fid +'=='+ idNumber +'=='+pwd );
-        return;
-            superagent.post('https://passport2-api.chaoxing.com/v6/idNumberLogin?fid=' + fid + '&idNumber=' + idNumber).set(headers).send({pwd:pwd }).redirects(0).end(function (err, resonse) {
+
+        var form = new formidable.IncomingForm();
+
+        form.parse(req, function(err, fields, files) {
+        //     console.log(err )
+            console.log(fields )
+
+            let fids = fields.school;              //学校id
+            let idNumber = fields.number;         //学号
+            let pwd = fields.pass;                //密码
+            console.log(fids +'=='+ idNumber +'=='+pwd );
+            if (fids==' ') {
+                res.send({
+                    state: 'error',
+                    message: "学校不存在"
+                }); 
+            }else if (idNumber=='') {
+                res.send({
+                    state: 'error',
+                    message: "学号错误"
+                }); 
+            }else if (pwd=='') {
+                res.send({
+                    state: 'error',
+                    message: "密码错误"
+                }); 
+            }
+
+            superagent.post('https://passport2-api.chaoxing.com/v6/idNumberLogin?fids=' + fids + '&idNumber=' + idNumber).set(headers).send({pwd:pwd }).redirects(0).end(function (err, resonse) {
                     console.log('执行完第一次请求');
                 let cookie = resonse.headers["set-cookie"];    //获取resonse返回的cookie
                 let $ = cheerio.load(resonse.text);
@@ -208,6 +231,7 @@ class UserSearch {
                     // console.log(cookie);
                 
                     let newDatas = JSON.parse(newData);     //转为json对象后进行操作
+                    console.log(newDatas);
                     let msgs = newDatas.msg ;
                     let school = msgs.schoolname;
                     let numbers = msgs.uname;
@@ -336,6 +360,7 @@ class UserSearch {
             }); //1
             // console.log( '综合请求数据' );
             // console.log( newContens );
+        });
     } //最底部
 
 }

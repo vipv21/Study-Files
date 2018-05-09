@@ -410,3 +410,37 @@ footer .fotBox span {
   border-top: 1px solid #303030;
   color: #555;
 }
+
+/* 订单页 */
+.orderT{
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
+.orderT ul,.orderT li{
+  list-style: none;padding: 0;margin: 0;
+}
+.orderT h6{
+  display: inline-block;
+  padding: 0;
+  margin: 20px 0;
+}
+.orderT input{
+  height: 30px;
+  border-radius: 5px;
+  border: 0;
+  outline: none;
+  padding: 0 5px;
+}
+.orderT button{
+  width: 150px;height: 30px;
+  background: #1F89bf;
+  border-radius: 5px;
+}
+
+
+
+
+
+

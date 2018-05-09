@@ -15,28 +15,16 @@ router.get('/' , function( req,res,next){
             userInfo :req.userInfo,
             categories : categories
         });
-
-
-
-
     })
-
-
-
-
-
-
-
-
-
-
-
-
-
 });
 
 
+router.get('/orderT' , function( req,res,next){
+    res.render('main/orderT',{
+        userInfo :req.userInfo
+    });
 
+});
 
 
 

@@ -95,7 +95,11 @@ export default {
           // console.log(valid);
           if (valid) {
           let params = this.ruleForm2;
-          api.post("users/search", params).then(result => {
+          // console.log(params);
+          // return;
+          api.post("users/search", params,{
+            headers:{'Content-Type':'application/json; charset=UTF-8'}
+            }).then(result => {
               if (result.data.state == "success") {
                 console.log(result);
                 // window.location = this.referPath;
