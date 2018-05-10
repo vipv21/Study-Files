@@ -3,10 +3,10 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import {Button,Row,Col} from 'vant'   //配置后的按需引入
+import {Button,Row,Col,Swipe , SwipeItem,Lazyload} from 'vant'   //配置后的按需引入 所需组件
 
 
-Vue.use(Button).use(Row).use(Col);
+Vue.use(Button).use(Row).use(Col).use(Swipe).use(SwipeItem).use(Lazyload) ;
 
 
 

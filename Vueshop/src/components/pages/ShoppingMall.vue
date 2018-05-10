@@ -14,8 +14,14 @@
                 </van-col>
             </van-row>
         </div>
-
-
+            <!-- swiper -->
+        <div class="banner">
+            <van-swipe :autoplay="2000">
+                <van-swipe-item v-for="(banner,index) in bannerPicArray" :key="idnex">
+                     <img v-lazy="banner.imageUrl" alt="轮播图" width="100%">  <!--使用v-lazy懒加载图 -->
+                </van-swipe-item>
+            </van-swipe>
+        </div>
 
     </div>
 </template>
@@ -25,7 +31,7 @@
         data() {
             return {
                 msg: 'Shopping Mall',
-                locationIcon: require('../../assets/images/location.png'),//require引入打包不会出错
+                locationIcon: require('../../assets/images/location.png'),//require引入本地图 打包不会出错
                 bannerPicArray:[
                     {imageUrl:'http://7xjyw1.com1.z0.glb.clouddn.com/simleVueDemoPic001.jpg'},
                     {imageUrl:'http://7xjyw1.com1.z0.glb.clouddn.com/simleVueDemoPic002.jpg'},
