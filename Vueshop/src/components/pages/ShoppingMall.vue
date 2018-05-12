@@ -27,6 +27,7 @@
 </template>
 
 <script>
+    import  axios from 'axios'
     export default {
         data() {
             return {
@@ -39,6 +40,16 @@
                 ]
             }
         },
+        created(){
+            axios({ //axios请求
+                url:'https://www.easy-mock.com/mock/5af6ad264a8e0f28cef5c471/Vueshop/index',
+                methods:'get'
+            }).then(response=>{
+                console.log(response)
+            }).catch(error=>{
+                console.log(error)
+            })
+        }
     }
 </script>
 
