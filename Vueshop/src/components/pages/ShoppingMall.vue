@@ -18,10 +18,28 @@
         <div class="banner">
             <van-swipe :autoplay="2000">
                 <van-swipe-item v-for="(banner,index) in bannerPicArray" :key="idnex">
-                     <img v-lazy="banner.imageUrl" alt="轮播图" width="100%">  <!--使用v-lazy懒加载图 -->
+                     <img v-lazy="banner.image" alt="轮播图" width="100%">  <!--使用v-lazy懒加载图 -->
                 </van-swipe-item>
             </van-swipe>
         </div>
+            <!-- type bar  -->
+        <div class="type-bar">
+            <div v-for="(cate,index) in category" :key='index'>
+                <img v-lazy="cate.image" alt="" width="90%">
+                <span>{{cate.mallCategoryName}}</span>
+            </div>
+        </div>
+            
+            <!-- 广告条 -->
+        <div>
+            <img v-lazy='addBanner' alt="" width="100%">
+        </div>
+
+
+
+
+
+
 
     </div>
 </template>
@@ -33,11 +51,9 @@
             return {
                 msg: 'Shopping Mall',
                 locationIcon: require('../../assets/images/location.png'),//require引入本地图 打包不会出错
-                bannerPicArray:[
-                    {imageUrl:'http://7xjyw1.com1.z0.glb.clouddn.com/simleVueDemoPic001.jpg'},
-                    {imageUrl:'http://7xjyw1.com1.z0.glb.clouddn.com/simleVueDemoPic002.jpg'},
-                    {imageUrl:'http://7xjyw1.com1.z0.glb.clouddn.com/simleVueDemoPic003.jpg'},
-                ]
+                bannerPicArray:[],
+                category:[],        //初始化数据 --菜单
+                addBanner:'',          //  --广告图
             }
         },
         created(){
@@ -46,6 +62,12 @@
                 methods:'get'
             }).then(response=>{
                 console.log(response)
+                if(response.status==200){
+                    this.bannerPicArray=response.data.data.slides;  //获取banner图
+                    this.category=response.data.data.category;      //菜单
+                    this.addBanner=response.data.data.advertesPicture.PICTURE_ADDRESS;  //广告图
+
+                }
             }).catch(error=>{
                 console.log(error)
             })
@@ -80,4 +102,21 @@
         max-height:15rem;
         overflow: hidden;
     }
+    .type-bar{
+        background-color: #fff;
+        margin:0 .3rem .3rem .3rem;
+        border-radius: .3rem;
+        font-size: 14px;
+        display: flex;      /*flex布局*/
+        flex-direction: row;
+        flex-wrap: nowrap;
+        text-align: center;
+    }
+    .type-bar div{
+        padding: .3rem;
+        font-size: 12px;
+    }
+
+
+
 </style>

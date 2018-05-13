@@ -6,7 +6,7 @@ import ShoppingMall from '@/components/pages/ShoppingMall'
 
 
 
-Vue.use(Router
+Vue.use(Router);
 
 
 export default new Router({
