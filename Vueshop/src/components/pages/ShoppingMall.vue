@@ -17,7 +17,7 @@
             <!-- swiper -->
         <div class="banner">
             <van-swipe :autoplay="2000">
-                <van-swipe-item v-for="(banner,index) in bannerPicArray" :key="idnex">
+                <van-swipe-item v-for="(banner,index) in bannerPicArray" :key="index">
                      <img v-lazy="banner.image" alt="轮播图" width="100%">  <!--使用v-lazy懒加载图 -->
                 </van-swipe-item>
             </van-swipe>
@@ -53,9 +53,23 @@
             </div>
         </div>
 
+        <div class="floor">
+            <div class="floor-anomaly">
+                <div class="floor-one">
+                    <img :src="floor1_0.image" alt="" width="100%">
+                </div>
+                <div>
+                    <div class="floor-two">
+                        <img :src="floor1_1.image" alt="" width="100%">
+                    </div>
+                    <div class=" ">
+                        <img :src="floor1_2.image" alt="" width="100%">
+                    </div>
+                </div>
+            </div>
+        </div>
 
-
-
+        
     </div>
 </template>
 
@@ -64,8 +78,9 @@
     //引入vue-awesome-swiper组件 非全局
     import 'swiper/dist/css/swiper.css'
     import {swiper,swiperSlide} from 'vue-awesome-swiper'
-
-
+   // import swiperDefault from '../swiper/swiperDefault'     //引入swiperDefault组件
+   // import swiperDefault2 from '../swiper/swiperDefault2'     //引入swiperDefault2组件
+   // import swiperText from '../swiper/swiperText'           //引入swiperText组件
     export default {
         data() {
             return {
@@ -78,6 +93,11 @@
                 swiperOption:{
                     slidesPerView:3
                 },
+                floor1:[],
+                floor1_0:{},
+                floor1_1:{},
+                floor1_2:{},
+
             }
         },
         components:{swiper,swiperSlide},    //注册引入的组件
@@ -92,6 +112,10 @@
                     this.category=response.data.data.category;      //菜单
                     this.addBanner=response.data.data.advertesPicture.PICTURE_ADDRESS;  //广告图
                     this.recommendGoods=response.data.data.recommend;       //商品推荐
+                    this.floor1 = response.data.data.floor1;
+                    this.floor1_0 =this.floor1[0];
+                    this.floor1_1 =this.floor1[1];
+                    this.floor1_2 =this.floor1[2];
                 }
             }).catch(error=>{
                 console.log(error)
@@ -117,6 +141,9 @@
         border-bottom:1px solid #fff !important;
         background-color: #e5017d;
         color:#fff;
+    }
+    .banner{
+        height: 9.625rem;
     }
     .location-icon{
         padding-top:.2rem;
@@ -161,6 +188,24 @@
         border-right: 1px solid#eee;
         font-size: 12px;
         text-align: center;
+    }
+    /* floor */
+    .floor-anomaly{
+        display: flex;
+        flex-direction: row;
+        background-color: #fff;
+        border-bottom: 1px solid #ddd;
+    }
+    .floor-anomaly div{
+        /* width: 10rem; */
+        box-sizing: border-box;
+        
+    }
+    .floor-one{
+        border-right: 1px solid #ddd;
+    }
+    .floor-two{
+        border-bottom: 1px solid #dddddd;
     }
 
 </style>
