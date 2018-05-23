@@ -52,7 +52,7 @@
                 </swiper>
             </div>
         </div>
-
+           <!-- 楼层效果 -->
         <div class="floor">
             <div class="floor-anomaly">
                 <div class="floor-one">
@@ -70,6 +70,14 @@
         </div>
 
         
+
+
+
+
+
+
+
+
     </div>
 </template>
 
@@ -93,7 +101,7 @@
                 swiperOption:{
                     slidesPerView:3
                 },
-                floor1:[],
+                floor1:[],      //楼层效果 初始化
                 floor1_0:{},
                 floor1_1:{},
                 floor1_2:{},
@@ -112,7 +120,7 @@
                     this.category=response.data.data.category;      //菜单
                     this.addBanner=response.data.data.advertesPicture.PICTURE_ADDRESS;  //广告图
                     this.recommendGoods=response.data.data.recommend;       //商品推荐
-                    this.floor1 = response.data.data.floor1;
+                    this.floor1 = response.data.data.floor1;     //楼层数据
                     this.floor1_0 =this.floor1[0];
                     this.floor1_1 =this.floor1[1];
                     this.floor1_2 =this.floor1[2];
