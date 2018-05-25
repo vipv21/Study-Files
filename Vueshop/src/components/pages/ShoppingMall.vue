@@ -52,32 +52,9 @@
                 </swiper>
             </div>
         </div>
-           <!-- 楼层效果 -->
-        <div class="floor">
-            <div class="floor-anomaly">
-                <div class="floor-one">
-                    <img :src="floor1_0.image" alt="" width="100%">
-                </div>
-                <div>
-                    <div class="floor-two">
-                        <img :src="floor1_1.image" alt="" width="100%">
-                    </div>
-                    <div class=" ">
-                        <img :src="floor1_2.image" alt="" width="100%">
-                    </div>
-                </div>
-            </div>
-        </div>
 
+         <floor-component :floorData='floor1'></floor-component>  <!--调用封装的组件 并用props 父组件传给 子组件数据 -->
         
-
-
-
-
-
-
-
-
     </div>
 </template>
 
@@ -86,6 +63,8 @@
     //引入vue-awesome-swiper组件 非全局
     import 'swiper/dist/css/swiper.css'
     import {swiper,swiperSlide} from 'vue-awesome-swiper'
+    import floorComponent from '../component/floorComponent'    //引入 封装的 楼层组件
+
    // import swiperDefault from '../swiper/swiperDefault'     //引入swiperDefault组件
    // import swiperDefault2 from '../swiper/swiperDefault2'     //引入swiperDefault2组件
    // import swiperText from '../swiper/swiperText'           //引入swiperText组件
@@ -102,13 +81,10 @@
                     slidesPerView:3
                 },
                 floor1:[],      //楼层效果 初始化
-                floor1_0:{},
-                floor1_1:{},
-                floor1_2:{},
 
             }
         },
-        components:{swiper,swiperSlide},    //注册引入的组件
+        components:{swiper,swiperSlide,floorComponent},    //注册引入的组件
         created(){
             axios({ //axios请求
                 url:'https://www.easy-mock.com/mock/5af6ad264a8e0f28cef5c471/Vueshop/index',
@@ -121,9 +97,9 @@
                     this.addBanner=response.data.data.advertesPicture.PICTURE_ADDRESS;  //广告图
                     this.recommendGoods=response.data.data.recommend;       //商品推荐
                     this.floor1 = response.data.data.floor1;     //楼层数据
-                    this.floor1_0 =this.floor1[0];
-                    this.floor1_1 =this.floor1[1];
-                    this.floor1_2 =this.floor1[2];
+                    // this.floor1_0 =this.floor1[0];
+                    // this.floor1_1 =this.floor1[1];
+                    // this.floor1_2 =this.floor1[2];
                 }
             }).catch(error=>{
                 console.log(error)
@@ -196,24 +172,6 @@
         border-right: 1px solid#eee;
         font-size: 12px;
         text-align: center;
-    }
-    /* floor */
-    .floor-anomaly{
-        display: flex;
-        flex-direction: row;
-        background-color: #fff;
-        border-bottom: 1px solid #ddd;
-    }
-    .floor-anomaly div{
-        /* width: 10rem; */
-        box-sizing: border-box;
-        
-    }
-    .floor-one{
-        border-right: 1px solid #ddd;
-    }
-    .floor-two{
-        border-bottom: 1px solid #dddddd;
     }
 
 </style>
