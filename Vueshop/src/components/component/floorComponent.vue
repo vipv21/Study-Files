@@ -33,7 +33,7 @@
             }
         },
         created(){
-
+            //这里请求数据 会有延迟导致页面没有数据  需要放置在 watch中监听
         },
         watch:{ //监听
             floorData:function(val){    //数据发生变化再次赋值

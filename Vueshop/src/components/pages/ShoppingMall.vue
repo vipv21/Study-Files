@@ -52,9 +52,11 @@
                 </swiper>
             </div>
         </div>
-
-         <floor-component :floorData='floor1'></floor-component>  <!--调用封装的组件 并用props 父组件传给 子组件数据 -->
+        <!-- 楼层组件 -->
+        <floor-component :floorData='floor1'></floor-component>  <!--调用封装的组件 并用props 父组件传给 子组件数据 -->
         
+        <!-- 封装2  swiper组件 绑定属性bannerPicArray，属性需要 引入并注册 -->
+        <!-- <swiper-test :bannerPicArray='bannerPicArray'></swiper-test> -->
     </div>
 </template>
 
@@ -64,10 +66,11 @@
     import 'swiper/dist/css/swiper.css'
     import {swiper,swiperSlide} from 'vue-awesome-swiper'
     import floorComponent from '../component/floorComponent'    //引入 封装的 楼层组件
+    import swiperTest from '../component/swiperTest'  //引入 封装的 swiper组件
 
    // import swiperDefault from '../swiper/swiperDefault'     //引入swiperDefault组件
    // import swiperDefault2 from '../swiper/swiperDefault2'     //引入swiperDefault2组件
-   // import swiperText from '../swiper/swiperText'           //引入swiperText组件
+
     export default {
         data() {
             return {
@@ -84,7 +87,7 @@
 
             }
         },
-        components:{swiper,swiperSlide,floorComponent},    //注册引入的组件
+        components:{swiper,swiperSlide,floorComponent,swiperTest},    //注册引入的组件
         created(){
             axios({ //axios请求
                 url:'https://www.easy-mock.com/mock/5af6ad264a8e0f28cef5c471/Vueshop/index',
