@@ -22,6 +22,9 @@
                 </van-swipe-item>
             </van-swipe>
         </div>
+            <!-- 封装2  swiper组件 绑定属性bannerPicArray，属性需要 引入并注册 -->
+        <!-- <swiper-test :bannerPicArray='bannerPicArray'></swiper-test> -->
+
             <!-- type bar  -->
         <div class="type-bar">
             <div v-for="(cate,index) in category" :key='index'>
@@ -53,10 +56,22 @@
             </div>
         </div>
         <!-- 楼层组件 -->
-        <floor-component :floorData='floor1'></floor-component>  <!--调用封装的组件 并用props 父组件传给 子组件数据 -->
-        
-        <!-- 封装2  swiper组件 绑定属性bannerPicArray，属性需要 引入并注册 -->
-        <!-- <swiper-test :bannerPicArray='bannerPicArray'></swiper-test> -->
+        <floor-component :floorData='floor1' :floorTitle='floorName.floor1'></floor-component>  <!--调用封装的组件 并用props 父组件传给 子组件数据 -->
+        <floor-component :floorData='floor2' :floorTitle='floorName.floor2'></floor-component>
+        <floor-component :floorData='floor3' :floorTitle='floorName.floor3'></floor-component>
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
 </template>
 
@@ -84,6 +99,9 @@
                     slidesPerView:3
                 },
                 floor1:[],      //楼层效果 初始化
+                floor2:[], 
+                floor3:[], 
+                floorName:{},   //楼层标题 初始化
 
             }
         },
@@ -99,7 +117,10 @@
                     this.category=response.data.data.category;      //菜单
                     this.addBanner=response.data.data.advertesPicture.PICTURE_ADDRESS;  //广告图
                     this.recommendGoods=response.data.data.recommend;       //商品推荐
+                    this.floorName = response.data.data.floorName;     //楼层数据
                     this.floor1 = response.data.data.floor1;     //楼层数据
+                    this.floor2 = response.data.data.floor2;     //楼层数据
+                    this.floor3 = response.data.data.floor3;     //楼层数据
                     // this.floor1_0 =this.floor1[0];
                     // this.floor1_1 =this.floor1[1];
                     // this.floor1_2 =this.floor1[2];

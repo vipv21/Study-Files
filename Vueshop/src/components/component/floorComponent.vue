@@ -2,6 +2,7 @@
     <div>
            <!-- 楼层效果 -->
         <div class="floor">
+            <div class="floor-title">{{floorTitle}}</div>
             <div class="floor-anomaly">
                 <div class="floor-one">
                     <img :src="floorData0.image" alt="" width="100%">
@@ -24,7 +25,7 @@
 
 <script>
     export default {
-        props:['floorData'],
+        props:['floorData','floorTitle'],
         data() {
             return {
                floorData0:{},
@@ -47,6 +48,11 @@
 
 <style scoped>
     /* floor */
+    .floor-title{
+        text-align: center;
+        font-size: 14px;
+        height: 1.8rem; line-height: 1.8rem;
+    }
     .floor-anomaly{
         display: flex;
         flex-direction: row;
