@@ -86,6 +86,8 @@
    // import swiperDefault from '../swiper/swiperDefault'     //引入swiperDefault组件
    // import swiperDefault2 from '../swiper/swiperDefault2'     //引入swiperDefault2组件
 
+    import {toMoney} from '@/filter/moneyFilter.js'
+    
     export default {
         data() {
             return {
