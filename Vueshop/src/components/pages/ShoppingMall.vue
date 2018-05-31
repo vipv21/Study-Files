@@ -68,6 +68,7 @@
                 <van-list>
                     <van-row gutter='20'>
                         <van-col span='12' v-for="(item,index ) in hotGoods" :key="index">
+                        <!-- 此处 goods-infos 为引入的组件设置的名称 绑定属性的 图片 名称 价格-->
                             <goods-infos :goodsImage='item.image' :goodsName='item.name' :goodsPrice='item.price' ></goods-infos>
                         </van-col>
                     </van-row>
@@ -92,7 +93,7 @@
    // import swiperDefault2 from '../swiper/swiperDefault2'     //引入swiperDefault2组件
 
     import {toMoney} from '@/components/filter/moneyFilter.js'     //@ 表示src目录下 路径
-    import goodsInfos from '../component/goodsInfos'
+    import goodsInfos from '../component/goodsInfos'        //引入封装的 热卖商品组件
     
     export default {
         data() {
