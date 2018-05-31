@@ -11,7 +11,7 @@
 <script>
     import {toMoney} from '@/components/filter/moneyFilter.js'
     export default {
-        props:['goodsImage','goodsName','goodsPrice'],  //传入商品图、名称、价格
+        props:['goodsImage','goodsName','goodsPrice'],   //传入商品图、名称、价格
         data() {
             return {
                 
