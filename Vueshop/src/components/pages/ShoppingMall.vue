@@ -49,7 +49,7 @@
                         <div class="recommend-item">
                             <img :src="item.image" alt=""  width="80%">
                             <div>{{item.goodsName}}</div>
-                            <div>￥{{item.price}}(￥{{item.mallPrice}})</div>
+                            <div>￥{{item.price|moneyFilter}}(￥{{item.mallPrice |moneyFilter}})</div>
                         </div>
                     </swiper-slide>
                 </swiper>
@@ -86,7 +86,7 @@
    // import swiperDefault from '../swiper/swiperDefault'     //引入swiperDefault组件
    // import swiperDefault2 from '../swiper/swiperDefault2'     //引入swiperDefault2组件
 
-    import {toMoney} from '@/filter/moneyFilter.js'
+    import {toMoney} from '@/components/filter/moneyFilter.js'     //@ 表示src目录下 路径
     
     export default {
         data() {
@@ -107,10 +107,15 @@
 
             }
         },
+        filters:{
+            moneyFilter(monery){
+                return toMoney(monery); //此处toMoney 为引入是名称
+            }
+        },
         components:{swiper,swiperSlide,floorComponent,swiperTest},    //注册引入的组件
         created(){
             axios({ //axios请求
-                url:'https://www.easy-mock.com/mock/5af6ad264a8e0f28cef5c471/Vueshop/index',
+                url:'https://www.easy-mock.com/mock/5ae2eeb23fbbf24d8cd7f0b6/SmileVue/index', //数据请求接口   此更新了接口
                 methods:'get'
             }).then(response=>{
                 console.log(response)
@@ -154,6 +159,7 @@
     }
     .banner{
         height: 9.625rem;
+        overflow:hidden;
     }
     .location-icon{
         padding-top:.2rem;
@@ -177,6 +183,7 @@
     .type-bar div{
         padding: .3rem;
         font-size: 12px;
+        text-align: center;
     }
     /* 商品推荐样式 */
     .recommend-arer{
