@@ -60,15 +60,20 @@
         <floor-component :floorData='floor2' :floorTitle='floorName.floor2'></floor-component>
         <floor-component :floorData='floor3' :floorTitle='floorName.floor3'></floor-component>
 
-
-
-
-
-
-
-
-
-
+        <!-- 热卖商品 -->
+        <div class="hot-area">
+            <div class="hot-title">热卖商品</div>
+            <div class="hot-goods">
+            <!--这里需要一个list组件-->
+                <van-list>
+                    <van-row gutter='20'>
+                        <van-col span='12' v-for="(item,index ) in hotGoods" :key="index">
+                            <goods-infos :goodsImage='item.image' :goodsName='item.name' :goodsPrice='item.price' ></goods-infos>
+                        </van-col>
+                    </van-row>
+                </van-list>
+            </div>
+        </div>
 
 
 
@@ -87,6 +92,7 @@
    // import swiperDefault2 from '../swiper/swiperDefault2'     //引入swiperDefault2组件
 
     import {toMoney} from '@/components/filter/moneyFilter.js'     //@ 表示src目录下 路径
+    import goodsInfos from '../component/goodsInfos'
     
     export default {
         data() {
@@ -104,7 +110,7 @@
                 floor2:[], 
                 floor3:[], 
                 floorName:{},   //楼层标题 初始化
-
+                hotGoods:[]     //热卖商品
             }
         },
         filters:{
@@ -112,7 +118,7 @@
                 return toMoney(monery); //此处toMoney 为引入是名称
             }
         },
-        components:{swiper,swiperSlide,floorComponent,swiperTest},    //注册引入的组件
+        components:{swiper,swiperSlide,floorComponent,swiperTest,goodsInfos},    //注册引入的组件
         created(){
             axios({ //axios请求
                 url:'https://www.easy-mock.com/mock/5ae2eeb23fbbf24d8cd7f0b6/SmileVue/index', //数据请求接口   此更新了接口
@@ -128,9 +134,7 @@
                     this.floor1 = response.data.data.floor1;     //楼层数据
                     this.floor2 = response.data.data.floor2;     //楼层数据
                     this.floor3 = response.data.data.floor3;     //楼层数据
-                    // this.floor1_0 =this.floor1[0];
-                    // this.floor1_1 =this.floor1[1];
-                    // this.floor1_2 =this.floor1[2];
+                    this.hotGoods =response.data.data.hotGoods  //热卖商品
                 }
             }).catch(error=>{
                 console.log(error)
@@ -206,5 +210,11 @@
         font-size: 12px;
         text-align: center;
     }
-
+    /* 热卖商品 */
+    .hot-area{
+        text-align: center;
+        font-size:14px;
+        height: 1.8rem;
+        line-height:1.8rem;
+    }
 </style>

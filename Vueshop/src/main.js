@@ -3,11 +3,13 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import {Button,Row,Col,Swipe , SwipeItem,Lazyload} from 'vant'   //配置后的按需引入 所需组件
+import {Button,Row,Col,Swipe , SwipeItem,Lazyload,List} from 'vant'   //配置后的按需引入 所需组件
 // import  VueAwesomeSwiper from 'vue-awesome-swiper';
 // import 'swiiper/dist/css/swiper.css'
 
-Vue.use(Button).use(Row).use(Col).use(Swipe).use(SwipeItem).use(Lazyload);
+Vue.use(Button).use(Row).use(Col).use(Swipe).use(SwipeItem).use(Lazyload).use(List);
+
+
 
 
 
