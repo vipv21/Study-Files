@@ -94,7 +94,8 @@
 
     import {toMoney} from '@/components/filter/moneyFilter.js'     //@ 表示src目录下 路径
     import goodsInfos from '../component/goodsInfos'        //引入封装的 热卖商品组件
-    
+    import url from '@/serviceAPI.config.js'    //引入封装的 Axios  自定义为url 下面引用
+
     export default {
         data() {
             return {
@@ -122,8 +123,8 @@
         components:{swiper,swiperSlide,floorComponent,swiperTest,goodsInfos},    //注册引入的组件
         created(){
             axios({ //axios请求
-                url:'https://www.easy-mock.com/mock/5ae2eeb23fbbf24d8cd7f0b6/SmileVue/index', //数据请求接口   此更新了接口
-                methods:'get'
+                url: url.getShoppingMallInfo ,   //数据请求接口   此更新了接口
+                methods:'get',
             }).then(response=>{
                 console.log(response)
                 if(response.status==200){
