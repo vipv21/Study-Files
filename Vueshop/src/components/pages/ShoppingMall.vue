@@ -94,7 +94,7 @@
 
     import {toMoney} from '@/components/filter/moneyFilter.js'     //@ 表示src目录下 路径
     import goodsInfos from '../component/goodsInfos'        //引入封装的 热卖商品组件
-    import url from '@/serviceAPI.config.js'    //引入封装的 Axios  自定义为url 下面引用
+    import url from '@/serviceAPI.config.js'    //引入封装的 Axios  配置文件。自定义为url 下面引用
 
     export default {
         data() {
