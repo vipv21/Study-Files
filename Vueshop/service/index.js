@@ -1,5 +1,10 @@
 const Koa = require('koa'); //声明常量 引入koa
 const app = new Koa();      //实例化 Koa
+const {connect} =require('./database/init.js')
+
+;(async()=>{
+    await connect()
+})()
 
 app.use(async(ctx)=>{       
     ctx.body = " <h1>111111</h1>"   //页面输出内容
