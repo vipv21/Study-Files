@@ -8,6 +8,7 @@ exports.connect=()=>{
 
     let maxConnectTimes= 0;
 
+    //确保数据库连接成功再执行其他，外层增加Promise
     return new Promise((resolve,reject)=>{
         //增加数据库监听事件
         mongoose.connection.on('disconnected', () => {
