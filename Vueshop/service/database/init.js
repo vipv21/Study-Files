@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
-const db= 'mongodb://localhost/vueShop-db'
+const db= 'mongodb://localhost/vueShop'      //创建数据库
+const glob = require('glob');   //载入glob
+const {resolve} =require ('path');  //相对路径转为绝对路径
 
+exports.initSchemas = ()=>{
+    glob.sync(resolve(__dirname, './schema','**/*.js')).forEach(require)
+}
 
 exports.connect=()=>{
     //连接数据库 

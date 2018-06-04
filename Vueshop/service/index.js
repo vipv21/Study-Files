@@ -1,9 +1,22 @@
 const Koa = require('koa'); //声明常量 引入koa
 const app = new Koa();      //实例化 Koa
-const {connect} =require('./database/init.js')
+const {connect,initSchemas} =require('./database/init.js')
+const mongoose =require('mongoose');
 
+
+//立即执行函数
 ;(async()=>{
-    await connect()
+    await connect();
+    initSchemas();
+    const User = mongoose.model('User');
+    let oneUser = new User({userName:'jspang',password:'123456'})
+    oneUser.save().then(()=>{
+        console.log('插入成功');
+    })
+    let user = await User.findOne({}).exec();   //查询
+
+    console.log('这是'+user);
+
 })()
 
 app.use(async(ctx)=>{       
