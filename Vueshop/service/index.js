@@ -1,7 +1,8 @@
 const Koa = require('koa'); //声明常量 引入koa
 const app = new Koa();      //实例化 Koa
+const mongoose = require('mongoose');
 const {connect,initSchemas} =require('./database/init.js')
-const mongoose =require('mongoose');
+
 
 
 //立即执行函数
@@ -9,7 +10,7 @@ const mongoose =require('mongoose');
     await connect();
     initSchemas();
     const User = mongoose.model('User');
-    let oneUser = new User({userName:'jspang',password:'123456'})
+    let oneUser = new User({userName:'xiaoxin',password:'123456'})
     oneUser.save().then(()=>{
         console.log('插入成功');
     })
