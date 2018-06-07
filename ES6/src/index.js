@@ -26,6 +26,12 @@ function pang(...arg) {
 pang(1,2,3);    //引用赋值
 
 
+let arr1=['www','aaofa','com'];
+let arr2=arr1;
+console.log(arr2);
+arr2.push('wangyu');
+console.log(arr2);
+console.log(arr1);
 
 
 
