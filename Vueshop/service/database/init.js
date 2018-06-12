@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const db= 'mongodb://127.0.0.1:27017/vueTestOne'      //创建数据库
+const db= 'mongodb:/localhost/vueTestOne'      //创建数据库
 const glob = require('glob');   //载入glob
 const {resolve} =require ('path');  //相对路径转为绝对路径
 
@@ -42,7 +42,8 @@ exports.connect=()=>{
         })
         //连接打开的时候 
         mongoose.connection.once('open', () => {
-        console.log('数据库连接')
+            console.log('数据库连接')
+            resolve()
         })
 
     })
