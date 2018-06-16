@@ -17,11 +17,3 @@ mongoose.model('User', userSchema);
 
 
 
-
-
-
-
-
-
-
-
