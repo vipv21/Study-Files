@@ -33,13 +33,13 @@
 </script>
 
 <style scoped>
-.register-panel{
-    width: 90%;
-    border-radius: 5px;
-    margin: 20px auto;
-    padding-bottom: 80px;
-}
-.register-button{
-    padding-top: 10px;
-}
+    .register-panel{
+        width: 90%;
+        border-radius: 5px;
+        margin: 20px auto;
+        padding-bottom: 80px;
+    }
+    .register-button{
+        padding-top: 10px;
+    }
 </style>
