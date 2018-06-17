@@ -6,12 +6,13 @@ let router =new Router()
     })
  
 //用户注册接口
-router.get('/register',async(ctx)=>{
-    ctx.body='用户注册接口'
+router.post('/register', async (ctx) => {
+    console.log(ctx.request.body);
+    ctx.body=ctx.request.body;
 })
 
 //暴露接口
-module.exports=router ;
+module.exports= router ;
 
 
 

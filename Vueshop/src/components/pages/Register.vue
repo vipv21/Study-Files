@@ -9,7 +9,7 @@
             <van-field label='密码' type='password' placeholder='请输入密码' required v-model="password"  /> 
 
             <div class="register-button">
-                <van-button type='primary' size='large'>立即注册</van-button>
+                <van-button type='primary' size='large' @click="axiosRegsterUser()">立即注册</van-button>
             </div>
 
         </div>
@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import axios from "axios";
+import url from '@/serviceAPI.config.js'
     export default {
         data() {
             return {
@@ -25,9 +27,24 @@
             }
         },
         methods:{
-            goBack(){
+            goBack(){   //返回上一页
                 this.$router.go(-1);
+            },
+            axiosRegsterUser(){     //注册axios请求数据
+                axios({
+                    url: url.registerUser,
+                    methods:"post",
+                    data:{
+                        username: this.username,
+                        password: this.password
+                    }
+                }).then(response=>{
+                    console.log(response);
+                }).catch(error=>{
+                    console.log(error);
+                })
             }
+
         }
     }
 </script>
