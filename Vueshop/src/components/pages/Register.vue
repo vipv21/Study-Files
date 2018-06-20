@@ -2,7 +2,6 @@
     <div>
         <!-- 注册页面 -->
         <van-nav-bar title="用户注册" left-text='返回' left-arrow @click-left="goBack" />
-
         <div class="register-panel">
             <van-field label='用户名' icon="clear" placeholder='请输入用户名' required v-model="username" @click-icon="username='' "/> 
 
