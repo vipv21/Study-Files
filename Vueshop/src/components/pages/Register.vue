@@ -43,7 +43,6 @@ import url from '@/serviceAPI.config.js'
                     console.log(error);
                 })
             }
-
         }
     }
 </script>
