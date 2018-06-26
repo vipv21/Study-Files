@@ -30,9 +30,10 @@ import url from '@/serviceAPI.config.js'
                 this.$router.go(-1);
             },
             axiosRegsterUser(){     //注册axios请求数据
+                console.log(this.username);
                 axios({
                     url: url.registerUser,
-                    methods:"post",
+                    method:"post",
                     data:{
                         username: this.username,
                         password: this.password

@@ -2,7 +2,7 @@ const Koa = require('koa'); //声明常量 引入koa
 const app = new Koa();      //实例化 Koa
 const {connect,initSchemas} =require('./database/init.js')
 const mongoose = require('mongoose');
-const bodyParser = require('koa-bodyparser');   //解析post请求
+const bodyParser = require('koa-bodyparser');   //中间件 解析post请求
 const Router =require('koa-router');    //引入路由
 const Cors = require('koa2-cors');      //解决跨域处理
 
