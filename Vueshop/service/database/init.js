@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const db= 'mongodb:/localhost/vueTestOne'      //创建数据库
+const db= 'mongodb://localhost/vueTestOne'      //创建数据库名称--重点
 const glob = require('glob');   //载入glob
 const {resolve} =require ('path');  //相对路径转为绝对路径
 

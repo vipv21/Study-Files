@@ -9,6 +9,8 @@ const userSchema = new Schema({
   password: String,
   createAt: {  type: Date,  default: Date.now() }, //创建时间
   lastLoginAt: {  type: Date,  default: Date.now()  } //最后登录时间
+},{
+//  collation:'user'    //可以去除mongoodb数据中的collections自动添加的s
 })
 
 //发布模型  model类似中间件 连接
