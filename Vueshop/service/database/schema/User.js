@@ -31,7 +31,18 @@ userSchema.pre('save' , function(next){
   })
 })
 
+//比对用户信息
+userSchema.methods={
+  comparePassword: (_password, password) => {
+    return new Promise((resolve, reject) => {
+      bcrypt.compare(_password, password, (err, isMatch) => { //isMatch为比对结果
+        if(!err) resolve(isMatch)
+        else reject(err);
+      })
+    })
+  }
 
+}
 
 
 
