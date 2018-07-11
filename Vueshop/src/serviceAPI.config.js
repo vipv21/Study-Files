@@ -6,6 +6,7 @@ const URL={
     getShoppingMallInfo: BASEURL + 'index' ,    //商城首页 数据
     getGoodsInfo: BASEURL + 'getGoodsInfo' ,    //商城产品信息
     registerUser: LOCALURL+'user/register' ,    //用户注册接口
+    login:LOCALURL + 'user/login',              //用户登录接口
 }
 
 module.exports = URL    //对外暴露接口 方便引用
