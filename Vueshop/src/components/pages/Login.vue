@@ -40,6 +40,12 @@ import {Toast} from 'vant'
                 passwordErrorMsg:'',     //密码注册出错提示
             }
         },
+        created() {
+            if (localStorage.userInfo) {    //判断本地是否存在登录信息
+                Toast.success('已经登录！');
+                this.$router.push('/');
+            }
+        },
         methods:{
             goBack(){   //返回上一页
                 this.$router.go(-1);
@@ -57,20 +63,33 @@ import {Toast} from 'vant'
                 this.openLoading= true , //开始注册为loading状态
                 console.log(this.username);
                 axios({
-                    url: url.registerUser,
+                    url: url.login,
                     method:"post",
                     data:{
                         userName: this.username,
                         password: this.password
                     }
                 }).then(response=>{
+
                     console.log(response);
-
-
-
+                    if (response.data.code==200 && response.data.message) {
+                        new Promise( (resolve,reject)=>{
+                            localStorage.userInfo={userName : this.username}  //本地存储用胡登录信息
+                            setTimeout(()=>{resolve()},500) //等待500毫秒再执行下面
+                        }).then(()=>{
+                            Toast.success('登录成功');
+                            this.$router.push('/'); //一般是跳转个人首页
+                        }).catch(err=>{
+                            Toast.fail('登录状态保存失败')
+                        });
+                    } else {
+                        Toast.fail('登陆失败');
+                        this.openLoading= false ;
+                    }
                 }).catch(error=>{
                     console.log(error);
-
+                    Toast.fail('登录失败了');
+                    this.openLoading= false ;
                 })
             },
             checkForm(){        //验证表单的方法
