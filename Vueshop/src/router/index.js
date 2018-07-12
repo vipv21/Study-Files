@@ -20,10 +20,6 @@ export default new Router({
     //注册路由
     {path:'/register' ,name:'Register' ,component:Register },
     //登录路由
-    {
-      path: '/login',
-      name: 'Login',
-      component: Login
-    },
+    { path: '/login', name: 'Login', component: Login },
   ]
 })
