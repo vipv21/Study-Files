@@ -72,7 +72,7 @@ router.post('/getDetailGoodsInfo',async(ctx)=>{
     try{
         let goodsId = ctx.request.body.goodsId; //获取前端请求的参数
         const Goods = mongoose.model('Goods');  //查询mongoose的模型Goods
-        let result = await Goods.find({ID:goodsId}).exec()  //查找字段
+        let result = await Goods.findOne({ID:goodsId}).exec()  //查找字段
         ctx.body={code:200 ,message:result};
     }catch(error){  //打印异常
         ctx.body={ code:500 ,message:error};
