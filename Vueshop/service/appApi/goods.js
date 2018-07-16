@@ -66,5 +66,17 @@ router.get('/insertAllCategorySub', async (ctx) => { //异步的方法
 })
 
 
+//获取商品详情信息接口  async/await  或者promise/then 方法
+router.post('/getDetailGoodsInfo',async(ctx)=>{
+    //使用try catch 捕获异常
+    try{
+        let goodsId = ctx.request.body.goodsId; //获取前端请求的参数
+        const Goods = mongoose.model('Goods');  //查询mongoose的模型Goods
+        let result = await Goods.find({ID:goodsId}).exec()  //查找字段
+        ctx.body={code:200 ,message:result};
+    }catch(error){  //打印异常
+        ctx.body={ code:500 ,message:error};
+    }
+})
 
 module.exports =router ; //暴露路由接口出去
