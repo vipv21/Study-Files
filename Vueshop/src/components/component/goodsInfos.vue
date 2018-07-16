@@ -1,5 +1,5 @@
 <template>
-    <div class="goods-info">
+    <div class="goods-info" @click="goGoodsPage">   <!-- 点击商品跳转 -->
         <div class="goods-image">
             <img v-lazy="goodsImage" width="90%" />
         </div>
@@ -11,15 +11,15 @@
 <script>
     import {toMoney} from '@/components/filter/moneyFilter.js'
     export default {
-        props:['goodsImage','goodsName','goodsPrice'],   //传入商品图、名称、价格
-        data() {
-            return {
-                
-            }
-        },
+        props:['goodsImage','goodsName','goodsPrice','goodsId'],   //传入商品图、名称、价格 、id
         filters:{
             moneyFilter(money){
                 return toMoney(money)
+            }
+        },
+        methods:{
+            goGoodsPage(){  //路由跳转
+                this.$router.push({name:'Goods',query:{goodsId:this.goodsId}})
             }
         }
     }
