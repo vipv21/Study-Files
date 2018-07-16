@@ -18,7 +18,7 @@
             }
         },
         methods:{
-            goGoodsPage(){  //路由跳转
+            goGoodsPage(){  //路由跳转  路由传参效果 --》goods?goodsId=068fe09cf2a849b4b8c7
                 this.$router.push({name:'Goods',query:{goodsId:this.goodsId}})
             }
         }
