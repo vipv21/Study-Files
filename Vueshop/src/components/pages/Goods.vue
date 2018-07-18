@@ -15,10 +15,11 @@
         <!-- 名称 -->
         <div class="goods-name">{{goodsInfo.NAME}}</div>
         <!-- 价格 -->
-        <div class="goods-price">价格： ￥{{goodsInfo.PRESENT_PRICE | moneyFilter}}元 </div>    
+        <div class="goods-price">价格：￥{{goodsInfo.PRESENT_PRICE | moneyFilter}}元 </div>    
         <!-- tab 选项卡 -->
         <div>
-            <van-tabs>
+            <!-- swipeable 左右滑动效果 & sticky 吸顶效果-->
+            <van-tabs swipeable sticky>
                 <van-tab title="商品详情">
                     <div class="detail" v-html="goodsInfo.DETAIL"></div>
                 </van-tab>
