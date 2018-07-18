@@ -65,7 +65,6 @@ router.get('/insertAllCategorySub', async (ctx) => { //异步的方法
   ctx.body = '开始导入数据...'
 })
 
-
 //获取商品详情信息接口  async/await  或者promise/then 方法
 router.post('/getDetailGoodsInfo',async(ctx)=>{
     //使用try catch 捕获异常
@@ -78,5 +77,56 @@ router.post('/getDetailGoodsInfo',async(ctx)=>{
         ctx.body={ code:500 ,message:error};
     }
 })
+
+//读取大类信息
+router.get('/getCategoryList', async(ctx)=>{
+    try {
+        //const 声明常量   let 声明局部变量
+        const Category = mongoose.model('Category');
+        let result = await Category.find().exec();
+        ctx.body={code:200 ,message:result};
+    } catch (error) {
+        ctx.body={code:500, message:error}
+    }
+})
+
+//读取小类信息 api
+router.get('/getCategorySubList' ,async(ctx)=>{
+    try {
+        // let categoryId = ctx.request.body.categoryId;
+        let categoryId = 1;
+        //const 声明常量   let 声明局部变量
+        const CategorySub = mongoose.model('CategorySub');
+        let result = await CategorySub.find({
+          MALL_CATEGORY_ID: categoryId
+        }).exec();
+        ctx.body={code:200 ,message:result};
+    } catch (error) {
+        ctx.body={code:500, message:error}
+    }
+})
+
+//根据类别获取商品列表
+router.get('/getGoodsListByCategorySubID',async(ctx)=>{
+    try {
+        // let categorySubId = ctx.request.body.categorySubId;
+        let categorySubId = '2c9f6c946016ea9b016016f79c8e0000';     //模拟的数据id
+        const Goods = mongoose.model('Goods');  //获取模型
+        let result = await Goods.find({     //查找SUB_ID
+          SUB_ID: categorySubId
+        }).exec();
+        ctx.body={code:200 ,message:result};
+    } catch (error) {
+        ctx.body={code:500, message:error}
+    }
+})
+
+
+
+
+
+
+
+
 
 module.exports =router ; //暴露路由接口出去
