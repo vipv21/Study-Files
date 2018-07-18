@@ -8,6 +8,7 @@ const URL={
     registerUser: LOCALURL+'user/register' ,    //用户注册接口
     login:LOCALURL + 'user/login',              //用户登录接口
     getDetailGoodsInfo: LOCALURL + 'goods/getDetailGoodsInfo', //获取商品信息详情
+    getCategoryList: LOCALURL + 'goods/getCategoryList', //获取大类数据接口
 }
 
 module.exports = URL    //对外暴露接口 方便引用
