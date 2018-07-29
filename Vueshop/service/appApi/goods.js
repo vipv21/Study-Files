@@ -91,10 +91,10 @@ router.get('/getCategoryList', async(ctx)=>{
 })
 
 //读取小类信息 api
-router.get('/getCategorySubList' ,async(ctx)=>{
+router.post('/getCategorySubList' ,async(ctx)=>{
     try {
-        // let categoryId = ctx.request.body.categoryId;
-        let categoryId = 1;
+        let categoryId = ctx.request.body.categoryId;
+        // let categoryId = 1;
         //const 声明常量   let 声明局部变量
         const CategorySub = mongoose.model('CategorySub');
         let result = await CategorySub.find({
