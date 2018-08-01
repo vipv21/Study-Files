@@ -170,8 +170,8 @@
         overflow:hidden;
     }
     .location-icon{
-        padding-top:.2rem;
-        padding-left:.3rem;
+        /* padding-top:.2rem;
+        padding-left:.3rem; */
     }
     .swiper-area{
         clear:both;
@@ -192,6 +192,7 @@
         padding: .3rem;
         font-size: 12px;
         text-align: center;
+        flex: 1;
     }
     /* 商品推荐样式 */
     .recommend-arer{
