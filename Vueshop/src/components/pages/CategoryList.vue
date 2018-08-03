@@ -33,7 +33,8 @@
                             <van-list v-model="loading" :finished='finished' @load="onLoad" >
                                 <div class="list-item" v-for="(item,index) in goodList" :key='index'>
                                     <div class="list-item-img">
-                                        <img :src="item.IMAGE1" width="100%" alt="">
+                                        <!-- :onerror 绑定错误不显示图片时的默认图片展示 -->
+                                        <img :src="item.IMAGE1" width="100%" :onerror='errorImg'>
                                     </div>
                                     <div class="list-item-text">
                                         <div>{{item.NAME}}</div>
@@ -69,6 +70,7 @@
 
                 page:1,             //商品列表页
                 categorySubId:'',   //商品子类id
+                errorImg: 'this.src="'+require('@/assets/images/errorimg.png')+'"' ,//引入静态默认图片
 
             }
         },
