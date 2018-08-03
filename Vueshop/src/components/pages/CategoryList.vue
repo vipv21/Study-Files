@@ -166,7 +166,7 @@
                         page: this.page ,   //显示第几页
                     }
                 }).then(response=>{
-                    console.log(response);
+                    // console.log(response);
                     if (response.data.code==200 &&response.data.message.length) {
                         this.page++;
                         //合并数组信息 旧的 + 新的
