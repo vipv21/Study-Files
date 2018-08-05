@@ -222,4 +222,7 @@
         height: 1.8rem;
         line-height:1.8rem;
     }
+    .hot-goods{
+        overflow: hidden;
+    }
 </style>
