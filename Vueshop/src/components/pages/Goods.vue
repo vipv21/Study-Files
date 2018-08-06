@@ -59,9 +59,10 @@
             }
         },
         created() {
-            //接收goodsid参数
-            this.goodsId =this.$route.query.goodsId;
-            this.getInfo()
+            //接收goodsid参数   编程式导航 接收 兼容处理query和params
+            this.goodsId ? this.$route.query.goodsId : this.$route.params.goodsId ;
+            this.getInfo();
+
         },
         methods:{
             getInfo(){

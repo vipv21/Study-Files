@@ -31,14 +31,14 @@
                         <van-pull-refresh v-model="isRefresh" @refresh='onRefresh' >
                             <!-- 上拉加载数据 -->
                             <van-list v-model="loading" :finished='finished' @load="onLoad" >
-                                <div class="list-item" v-for="(item,index) in goodList" :key='index'>
+                                <div class="list-item" @click="getGoodInfo(item.ID)" v-for="(item,index) in goodList" :key='index'>
                                     <div class="list-item-img">
                                         <!-- :onerror 绑定错误不显示图片时的默认图片展示 -->
                                         <img :src="item.IMAGE1" width="100%" :onerror='errorImg'>
                                     </div>
                                     <div class="list-item-text">
                                         <div>{{item.NAME}}</div>
-                                        <div>￥{{item.ORI_PRICE}}元</div>
+                                        <div>￥{{item.ORI_PRICE | moneyFilter}}元</div>
                                     </div>
                                 </div>
                             </van-list>
@@ -55,6 +55,8 @@
     import axios from 'axios';
     import url from '@/serviceAPI.config.js';
     import { Toast } from 'vant';
+    //价格过滤器
+    import {toMoney} from '@/components/filter/moneyFilter.js'
 
     export default {
         data() {
@@ -72,6 +74,12 @@
                 categorySubId:'',   //商品子类id
                 errorImg: 'this.src="'+require('@/assets/images/errorimg.png')+'"' ,//引入静态默认图片
 
+            }
+        },
+        //价格过滤器
+        filters:{
+            moneyFilter(money){
+                return toMoney(money);
             }
         },
         created() { //执行axios
@@ -191,6 +199,12 @@
                 this.page = 1;  //初始化为第一页
                 this.onLoad() ; //调用加载方法  
             },
+        /* 跳转至商品详情页   编程式导航，
+            传递使用name用params 。使用path用query 
+        */
+            getGoodInfo(id){
+                this.$router.push({name:'Goods',params:{goodsId:id} })
+            }
         }
     }
 </script>
