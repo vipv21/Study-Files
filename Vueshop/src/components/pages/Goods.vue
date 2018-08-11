@@ -31,7 +31,7 @@
         <!-- 底部菜单按钮 -->
         <div class="goods-bottom">
             <div>
-                <van-button size='large' type='primary'>加入购物车</van-button>
+                <van-button size='large' type='primary' @click="addGoodsToCart">加入购物车</van-button>
             </div>
             <div>
                 <van-button size='large' type='danger'>直接购买</van-button>
@@ -49,7 +49,7 @@
     export default {
         data() {
             return {
-                goodsId: '775e575ce28a4f89b1dfe2c99eb08ae7',//模拟传递一个商品id
+                goodsId: '',//模拟传递一个商品id
                 goodsInfo:{},   //商品详细信息
             }
         },
@@ -60,7 +60,7 @@
         },
         created() {
             //接收goodsid参数   编程式导航 接收 兼容处理query和params
-            this.goodsId ? this.$route.query.goodsId : this.$route.params.goodsId ;
+            this.goodsId= this.goodsId ? this.$route.query.goodsId : this.$route.params.goodsId ;
             this.getInfo();
 
         },
@@ -88,6 +88,32 @@
             },
             onClickLeft(){
                 this.$router.go(-1) //返回上页
+            },
+            //添加产品到购物车操作
+            addGoodsToCart(){
+                //取出本地购物车中的商品信息
+                let cartInfo = localStorage.cartInfo ? JSON.parse(localStorage.cartInfo ) : [] ;
+                //查找本地  如果有查找返回数组第一个，否则返回undefine
+                let isHaveGoods = cartInfo.find(cart=>cart.goodsId ==this.goodsId);
+                console.log( isHaveGoods);
+                console.log(this.goodsInfo)
+                //判断数据存在本地 存在则不添加反之添加
+                if (!isHaveGoods) {
+                    //新的购物车商品信息
+                    let newGoodsInfo = {
+                        goodsId: this.goodsInfo.ID,
+                        name:this.goodsInfo.NAME ,
+                        price: this.goodsInfo.PRESENT_PRICE ,
+                        image: this.goodsInfo.IMAGE1,
+                        count: 1 ,
+                    }
+                    cartInfo.push(newGoodsInfo);
+                    localStorage.cartInfo =JSON.stringify(cartInfo);
+                    Toast.success('添加成功');
+                } else {
+                    Toast.success('已有此商品');
+                }
+                this.$router.push({name:'Cart'});
             }
             
 
