@@ -203,6 +203,7 @@
             传递使用name用params 。使用path用query 
         */
             getGoodInfo(id){
+                console.log(id);
                 this.$router.push({name:'Goods',params:{goodsId:id} })
             }
         }
