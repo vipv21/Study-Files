@@ -90,9 +90,9 @@
             //获取窗口的高度
             let winHeight = document.documentElement.clientHeight;
             // console.log(winHeight) 
-            document.getElementById('leftNav').style.height = winHeight -46 +'px';
+            document.getElementById('leftNav').style.height = winHeight -46-50 +'px';
             //上拉加载 页面高度
-            document.getElementById('list-div').style.height = winHeight -90 +'px';
+            document.getElementById('list-div').style.height = winHeight -90-50 +'px';
         },
         methods:{
             getCategory(){
