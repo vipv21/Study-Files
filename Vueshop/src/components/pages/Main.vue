@@ -1,7 +1,10 @@
 <template>
     <div>
         <div class="main-div">
-            <router-view></router-view>
+            <!-- 实现缓存 -->
+            <keep-alive>
+                <router-view></router-view>
+            </keep-alive>
         </div>
         <van-tabbar v-model="active" @change="changeTabbar(active)">
             <van-tabbar-item icon='shop' >首页</van-tabbar-item>
